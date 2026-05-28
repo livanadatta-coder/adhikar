@@ -1,0 +1,9 @@
+{
+  "domain": "police_fir",
+  "act": "CrPC",
+  "section": "167",
+  "title": "Custody and bail — police remand limits",
+  "text": "Section 167 CrPC governs how long police can hold you in custody during investigation. The police can seek remand (custody) from a magistrate for up to 15 days total in police custody. After 15 days, you must be in judicial custody (jail), not police custody. The total maximum period of detention during investigation is 60 days for offences punishable with death, life imprisonment, or imprisonment for 10+ years. For other offences, the limit is 90 days. If the charge sheet is not filed within these periods, you are entitled to bail as a matter of right under Section 167(2) — this is called 'default bail' or 'statutory bail'. You must apply for it; the court will grant it. This is an important protection against indefinite detention without trial.",
+  "source": "CrPC Section 167",
+  "scraped_at": "2026-05-21"
+}

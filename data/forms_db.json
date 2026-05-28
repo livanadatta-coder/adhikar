@@ -1,0 +1,228 @@
+{
+  "police_fir": [
+    {
+      "name": "First Information Report (FIR)",
+      "purpose": "Official document that starts the criminal justice process for a cognisable offence",
+      "where_to_get": "Any police station — they must provide it free of charge after registering your complaint",
+      "url": null,
+      "notes": "You are legally entitled to a free copy of your FIR under Section 154 CrPC. If police refuse, escalate to the SP."
+    },
+    {
+      "name": "Written Complaint to Superintendent of Police",
+      "purpose": "Escalation when local police refuse to register your FIR",
+      "where_to_get": "No official form — write your own complaint letter and send by registered post to the SP office",
+      "url": null,
+      "notes": "Under Section 154(3) CrPC. Keep the postal receipt as proof of submission."
+    },
+    {
+      "name": "Section 156(3) Complaint to Magistrate",
+      "purpose": "Direct complaint to a magistrate ordering police to register an FIR",
+      "where_to_get": "File at the filing counter of your nearest Judicial Magistrate Court",
+      "url": null,
+      "notes": "No lawyer required. Write your complaint, attach any evidence, submit at court counter."
+    },
+    {
+      "name": "Bail Application",
+      "purpose": "Application for release on bail for a bailable or non-bailable offence",
+      "where_to_get": "Available at the court filing counter or through your lawyer",
+      "url": null,
+      "notes": "For bailable offences, bail is a right — police cannot refuse."
+    }
+  ],
+  "eviction_housing": [
+    {
+      "name": "Rent Control Court Complaint",
+      "purpose": "Complaint against illegal eviction or landlord harassment",
+      "where_to_get": "Rent Control Court in your city (called Rent Authority in some states)",
+      "url": null,
+      "notes": "Procedure varies by state. Maharashtra: approach the Rent Court under Maharashtra Rent Control Act 1999. Karnataka: approach the Rent Control Court under Karnataka Rent Act 2001."
+    },
+    {
+      "name": "RERA Complaint Form",
+      "purpose": "Complaint against a builder or developer for delayed possession, false promises, or defects",
+      "where_to_get": "State RERA portal — each state has its own",
+      "url": "https://rera.maharashtra.gov.in",
+      "notes": "Maharashtra: MahaRERA. Karnataka: K-RERA at rera.karnataka.gov.in. Tamil Nadu: TNRERA at tnrera.in"
+    },
+    {
+      "name": "Police Complaint for Illegal Eviction",
+      "purpose": "FIR against landlord for forcible/illegal eviction",
+      "where_to_get": "Local police station",
+      "url": null,
+      "notes": "Illegal eviction (removing tenant without court order) is a criminal offence. File an FIR under IPC Section 441 (criminal trespass)."
+    }
+  ],
+  "workplace_salary": [
+    {
+      "name": "Labour Court Complaint (Form A)",
+      "purpose": "Complaint for unpaid wages, wrongful termination, or labour law violations",
+      "where_to_get": "Office of the Labour Commissioner in your district",
+      "url": null,
+      "notes": "Under the Industrial Disputes Act. File within 3 years of the violation."
+    },
+    {
+      "name": "Payment of Wages Authority Complaint",
+      "purpose": "Complaint specifically for unpaid or delayed wages",
+      "where_to_get": "Office of the Payment of Wages Authority / Labour Commissioner",
+      "url": null,
+      "notes": "Under Payment of Wages Act 1936. Faster than Labour Court for straightforward unpaid salary cases."
+    },
+    {
+      "name": "PF Grievance Form",
+      "purpose": "Complaint for Provident Fund not deposited by employer",
+      "where_to_get": "EPFO Grievance Portal online",
+      "url": "https://epfigms.gov.in",
+      "notes": "You can also call EPFO helpline at 1800-118-005 (toll free)."
+    },
+    {
+      "name": "Sexual Harassment Complaint (ICC)",
+      "purpose": "Formal complaint to Internal Complaints Committee under POSH Act",
+      "where_to_get": "Your company's HR department or Internal Complaints Committee",
+      "url": null,
+      "notes": "Every company with 10+ employees must have an ICC. If none exists, file with Local Complaints Committee at District Collector office."
+    }
+  ],
+  "consumer_fraud": [
+    {
+      "name": "Consumer Complaint Form (Form A — CPA 2019)",
+      "purpose": "Formal complaint against seller, service provider, or e-commerce platform",
+      "where_to_get": "District Consumer Disputes Redressal Commission in your district, or file online",
+      "url": "https://edaakhil.nic.in",
+      "notes": "Claims up to Rs 50 lakh go to District Commission. Rs 50 lakh to 2 crore go to State Commission. Above 2 crore go to National Commission. Filing fee is minimal."
+    },
+    {
+      "name": "National Consumer Helpline Complaint",
+      "purpose": "Quick complaint registration before formal legal proceedings",
+      "where_to_get": "Online portal or call 1800-11-4000 (toll free)",
+      "url": "https://consumerhelpline.gov.in",
+      "notes": "NCH mediates between consumer and company. Faster than court. Use this first before filing in District Commission."
+    },
+    {
+      "name": "Cyber Crime Complaint",
+      "purpose": "Complaint for online fraud, phishing, or digital financial fraud",
+      "where_to_get": "National Cyber Crime Reporting Portal",
+      "url": "https://cybercrime.gov.in",
+      "notes": "File within 24-48 hours of the fraud for best chance of recovery. Also call helpline 1930 for financial cyber fraud."
+    },
+    {
+      "name": "RBI Banking Ombudsman Complaint",
+      "purpose": "Complaint against bank for fraud, unauthorized transactions, or poor service",
+      "where_to_get": "RBI CMS Portal online",
+      "url": "https://cms.rbi.org.in",
+      "notes": "Free to file. Must first complain to bank and wait 30 days before approaching ombudsman."
+    }
+  ],
+  "domestic_violence": [
+    {
+      "name": "Domestic Incident Report (DIR)",
+      "purpose": "Official record of domestic violence incident — the first document in the legal process",
+      "where_to_get": "Protection Officer at your district collectorate, or any registered NGO or shelter home",
+      "url": null,
+      "notes": "Under Protection of Women from Domestic Violence Act 2005. Filing a DIR is free and does not automatically mean court proceedings."
+    },
+    {
+      "name": "Application for Protection Order",
+      "purpose": "Court order preventing the abuser from contacting or approaching you",
+      "where_to_get": "File at the Magistrate Court with help from a Protection Officer or lawyer",
+      "url": null,
+      "notes": "The magistrate can grant an emergency protection order the same day. Contact Protection Officer first — they assist for free."
+    },
+    {
+      "name": "Application for Residence Order",
+      "purpose": "Court order allowing you to stay in the shared household even if you don't own it",
+      "where_to_get": "Magistrate Court — file along with or after Protection Order application",
+      "url": null,
+      "notes": "Even if the house is in the husband's name, you have a right to reside there under the DV Act."
+    },
+    {
+      "name": "One Stop Centre Registration",
+      "purpose": "Access free shelter, medical, legal, and police assistance in one place",
+      "where_to_get": "One Stop Centres (Sakhi Centres) are in every district — contact district collectorate",
+      "url": null,
+      "notes": "Call Women Helpline 181 or 1091 to locate your nearest One Stop Centre. Available 24/7."
+    }
+  ],
+  "land_property": [
+    {
+      "name": "Revenue Court Complaint",
+      "purpose": "Complaint for land encroachment, boundary disputes, or illegal possession",
+      "where_to_get": "Tahsildar or Sub-Divisional Magistrate office in your tehsil",
+      "url": null,
+      "notes": "Faster and cheaper than civil court for land disputes. Bring your land records (7/12 extract or RTC)."
+    },
+    {
+      "name": "7/12 Extract (Satbara Utara)",
+      "purpose": "Official record of land ownership and cultivation — essential for all land disputes",
+      "where_to_get": "Talathi office or online via state land records portal",
+      "url": "https://mahabhulekh.maharashtra.gov.in",
+      "notes": "Maharashtra: MahaBhulekh. Karnataka: Bhoomi portal at landrecords.karnataka.gov.in. Tamil Nadu: TNEGA at eservices.tn.gov.in"
+    },
+    {
+      "name": "Civil Suit for Injunction",
+      "purpose": "Court order stopping someone from building on or using your land",
+      "where_to_get": "File through a lawyer at the Civil Court for your jurisdiction",
+      "url": null,
+      "notes": "Requires a lawyer. File for a temporary injunction first — can be granted within days to stop ongoing construction."
+    }
+  ],
+  "court_bail": [
+    {
+      "name": "Regular Bail Application",
+      "purpose": "Application for bail after arrest in a non-bailable offence",
+      "where_to_get": "File through a lawyer at the Sessions Court or the court where your case is being heard",
+      "url": null,
+      "notes": "If Sessions Court refuses, you can apply to the High Court. Legal aid lawyers available free through NALSA at 15100."
+    },
+    {
+      "name": "Anticipatory Bail Application (Section 438 CrPC)",
+      "purpose": "Bail granted BEFORE arrest — protects you if you fear arrest",
+      "where_to_get": "Sessions Court or High Court — file through a lawyer",
+      "url": null,
+      "notes": "Must be filed before arrest. Once granted, you cannot be arrested for that offence without the court's permission."
+    },
+    {
+      "name": "Default Bail Application (Section 167(2) CrPC)",
+      "purpose": "Bail as a right if charge sheet not filed within 60 or 90 days",
+      "where_to_get": "File at the Magistrate Court yourself or through a lawyer",
+      "url": null,
+      "notes": "You MUST apply for this — it is not automatic. 60 days for serious offences (death/life imprisonment), 90 days for others."
+    },
+    {
+      "name": "Legal Aid Application (NALSA)",
+      "purpose": "Free lawyer provided by the state for those who cannot afford one",
+      "where_to_get": "District Legal Services Authority (DLSA) at your district court, or call NALSA at 15100",
+      "url": "https://nalsa.gov.in",
+      "notes": "Available to anyone arrested, any woman, any person with disability, or anyone with annual income below Rs 1 lakh."
+    }
+  ],
+  "government_schemes": [
+    {
+      "name": "PM-KISAN Grievance Form",
+      "purpose": "Complaint for non-receipt of PM-KISAN farmer income support payments",
+      "where_to_get": "PM-KISAN portal online or Common Service Centre (CSC) in your village",
+      "url": "https://pmkisan.gov.in",
+      "notes": "Check your payment status first on the portal. Common issues: wrong Aadhaar linkage, wrong bank account. Can be fixed at nearest CSC."
+    },
+    {
+      "name": "MGNREGA Job Card Application",
+      "purpose": "Registration for 100 days of guaranteed employment under MGNREGA",
+      "where_to_get": "Gram Panchayat office in your village",
+      "url": null,
+      "notes": "Every rural household is entitled to a job card. If denied, file written complaint with Block Development Officer."
+    },
+    {
+      "name": "Aadhaar Grievance Form",
+      "purpose": "Complaint for Aadhaar-related issues — wrong details, biometric failure, benefit denial",
+      "where_to_get": "UIDAI self-service portal or nearest Aadhaar Seva Kendra",
+      "url": "https://myaadhaar.uidai.gov.in",
+      "notes": "Call UIDAI helpline 1947 for immediate assistance. If benefit is denied due to Aadhaar failure, you are still entitled to the benefit by alternative ID."
+    },
+    {
+      "name": "Ration Card Grievance (PDS Complaint)",
+      "purpose": "Complaint for denial of ration entitlements or ration card issues",
+      "where_to_get": "District Food and Civil Supplies office, or state PDS portal",
+      "url": null,
+      "notes": "Under the National Food Security Act, every eligible household is entitled to subsidised grain. Denial is a legal violation."
+    }
+  ]
+}

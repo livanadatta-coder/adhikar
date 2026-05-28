@@ -1,0 +1,8 @@
+venv/
+.env
+db/
+__pycache__/
+*.pyc
+.DS_Store
+corpus/processed/
+*.egg-info/

@@ -1,0 +1,9 @@
+{
+  "source": "Consumer Protection Act 2019, e-daakhil portal",
+  "domain": "consumer_fraud",
+  "act": "Consumer Protection Act 2019",
+  "section": "online complaint",
+  "title": "e-daakhil — Online consumer complaint filing portal",
+  "text": "e-daakhil is the official online portal for filing consumer complaints in India, available at edaakhil.nic.in. It was launched by the Department of Consumer Affairs to enable consumers to file complaints electronically before the District, State, or National Consumer Disputes Redressal Commission without visiting the commission office. Any consumer can register on e-daakhil and file a complaint against a trader, manufacturer, or service provider. The portal allows consumers to file complaints, pay court fees online, track the status of their complaint, upload documents, and receive notices electronically. There is no requirement to hire a lawyer to use e-daakhil. The filing fee is minimal — for claims up to five lakh rupees the fee is two hundred rupees, and it scales upward with the claim amount. Documents that should be uploaded include proof of purchase such as invoice or receipt, warranty card if applicable, correspondence with the seller or service provider, photographs of defective goods, and any other evidence supporting the complaint. After filing, the complainant receives a case number and can track the proceedings online. e-daakhil covers complaints related to defective products, deficient services, overcharging, unfair trade practices, misleading advertisements, and online fraud.",
+  "scraped_at": "2026-05-28"
+}

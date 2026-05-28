@@ -1,0 +1,242 @@
+[
+  {
+    "id": "PF001",
+    "domain": "police_fir",
+    "scenario": "Police arrived at my house at 11pm and want to take me to the police station without showing any warrant.",
+    "expected_rights": ["Section 41 CrPC", "D.K. Basu guidelines", "Article 22"],
+    "expected_actions": ["Ask for warrant", "Do not leave without warrant", "Call family member", "Note officer names and badge numbers"],
+    "expected_forms": []
+  },
+  {
+    "id": "PF002",
+    "domain": "police_fir",
+    "scenario": "I was arrested and the police have not told me why I am being arrested or what charges are against me.",
+    "expected_rights": ["Section 50 CrPC", "Article 22", "D.K. Basu guidelines"],
+    "expected_actions": ["Ask police to state grounds of arrest", "Do not answer questions without lawyer", "Inform family immediately"],
+    "expected_forms": []
+  },
+  {
+    "id": "PF003",
+    "domain": "police_fir",
+    "scenario": "I went to the police station to file an FIR about a theft but the officer is refusing to register my complaint.",
+    "expected_rights": ["Section 154 CrPC", "Section 41A CrPC"],
+    "expected_actions": ["Submit complaint in writing to officer in charge", "Send complaint by post to Superintendent of Police", "Approach magistrate under Section 156(3) CrPC"],
+    "expected_forms": []
+  },
+  {
+    "id": "PF004",
+    "domain": "police_fir",
+    "scenario": "I have been in police custody for more than 24 hours and they have not produced me before a magistrate.",
+    "expected_rights": ["Section 57 CrPC", "Section 167 CrPC", "Article 22"],
+    "expected_actions": ["Demand to be produced before magistrate immediately", "Contact a lawyer", "Inform family members"],
+    "expected_forms": []
+  },
+  {
+    "id": "PF005",
+    "domain": "police_fir",
+    "scenario": "Police are threatening me and using physical force during questioning at the station.",
+    "expected_rights": ["D.K. Basu guidelines", "Article 21", "Section 41 CrPC"],
+    "expected_actions": ["State clearly that you do not consent to any force", "Request to speak with a lawyer immediately", "Note time and names of officers", "File complaint with magistrate after release"],
+    "expected_forms": []
+  },
+  {
+    "id": "PF006",
+    "domain": "police_fir",
+    "scenario": "I was given a notice under Section 41A asking me to appear at the police station. Do I have to go?",
+    "expected_rights": ["Section 41A CrPC", "Section 41 CrPC"],
+    "expected_actions": ["Appear as required by the notice", "Bring a lawyer if possible", "Do not ignore the notice as that can lead to arrest"],
+    "expected_forms": []
+  },
+  {
+    "id": "PF007",
+    "domain": "police_fir",
+    "scenario": "My son was arrested and we have not been informed where he is being held.",
+    "expected_rights": ["D.K. Basu guidelines", "Section 50A CrPC", "Article 22"],
+    "expected_actions": ["Go to local police station and ask for information", "Contact area magistrate if police refuse to inform", "File habeas corpus petition if location not disclosed"],
+    "expected_forms": []
+  },
+  {
+    "id": "PF008",
+    "domain": "police_fir",
+    "scenario": "I want to apply for bail after being arrested. What are my rights?",
+    "expected_rights": ["Section 167 CrPC", "Section 437 CrPC", "Article 21"],
+    "expected_actions": ["Apply for bail at the magistrate court", "Engage a lawyer to file bail application", "If detained beyond 60 or 90 days without chargesheet you get default bail"],
+    "expected_forms": []
+  },
+  {
+    "id": "PF009",
+    "domain": "police_fir",
+    "scenario": "The police searched my house without a warrant and took away my belongings.",
+    "expected_rights": ["Section 165 CrPC", "Article 21", "D.K. Basu guidelines"],
+    "expected_actions": ["Demand a copy of the search memo", "Note everything that was taken", "File complaint with magistrate about illegal search"],
+    "expected_forms": []
+  },
+  {
+    "id": "PF010",
+    "domain": "police_fir",
+    "scenario": "I am a woman and was arrested after sunset. Is this legal?",
+    "expected_rights": ["Section 46 CrPC", "D.K. Basu guidelines", "Article 21"],
+    "expected_actions": ["Arrest of women after sunset and before sunrise requires special order from magistrate", "Demand to see the magistrate order", "Insist a female police officer be present"],
+    "expected_forms": []
+  },
+  {
+    "id": "EH001",
+    "domain": "eviction_housing",
+    "scenario": "My landlord has locked my house and thrown out my belongings without going to court.",
+    "expected_rights": ["Transfer of Property Act", "Maharashtra Rent Control Act", "Article 21"],
+    "expected_actions": ["Do not vacate until court order is obtained", "File complaint with local magistrate about illegal eviction", "Contact police to report forced eviction"],
+    "expected_forms": ["Eviction complaint form"]
+  },
+  {
+    "id": "EH002",
+    "domain": "eviction_housing",
+    "scenario": "My landlord is demanding I leave within 7 days but has not given any written notice or reason.",
+    "expected_rights": ["Transfer of Property Act", "Maharashtra Rent Control Act"],
+    "expected_actions": ["Do not vacate without valid court eviction order", "Ask landlord to provide written notice with legal grounds", "Consult rent control court in your district"],
+    "expected_forms": ["Eviction complaint form"]
+  },
+  {
+    "id": "EH003",
+    "domain": "eviction_housing",
+    "scenario": "My landlord has suddenly doubled the rent and says if I don't pay the new amount I will be evicted.",
+    "expected_rights": ["Maharashtra Rent Control Act", "Transfer of Property Act"],
+    "expected_actions": ["Continue paying original agreed rent and document the payment", "File application in Rent Control Court challenging the rent increase", "Do not vacate voluntarily"],
+    "expected_forms": ["Rent Control Court application"]
+  },
+  {
+    "id": "EH004",
+    "domain": "eviction_housing",
+    "scenario": "I have been a tenant for 12 years and my landlord says he wants to sell the property and I must leave immediately.",
+    "expected_rights": ["Maharashtra Rent Control Act", "Transfer of Property Act"],
+    "expected_actions": ["Landlord must get a court eviction order even if selling", "You have right of first refusal in some states", "Contest any eviction in Rent Control Court"],
+    "expected_forms": ["Eviction complaint form"]
+  },
+  {
+    "id": "EH005",
+    "domain": "eviction_housing",
+    "scenario": "My landlord is cutting off water and electricity to force me to leave.",
+    "expected_rights": ["Article 21", "Maharashtra Rent Control Act", "Transfer of Property Act"],
+    "expected_actions": ["File complaint with local magistrate for harassment", "Report to municipal corporation about utility disconnection", "Document all incidents with dates"],
+    "expected_forms": ["Eviction complaint form"]
+  },
+  {
+    "id": "EH006",
+    "domain": "eviction_housing",
+    "scenario": "I have no written rental agreement. Can my landlord still evict me?",
+    "expected_rights": ["Transfer of Property Act", "Maharashtra Rent Control Act"],
+    "expected_actions": ["Verbal tenancy is legally valid in India", "Landlord still needs court order to evict you", "Collect evidence of tenancy like rent receipts, utility bills in your name"],
+    "expected_forms": []
+  },
+  {
+    "id": "EH007",
+    "domain": "eviction_housing",
+    "scenario": "My landlord is refusing to return my security deposit after I vacated the property.",
+    "expected_rights": ["Transfer of Property Act", "Maharashtra Rent Control Act"],
+    "expected_actions": ["Send written demand for deposit with deadline", "File case in consumer forum or civil court for recovery", "Keep all rent receipts and move-out documentation"],
+    "expected_forms": ["Small claims court form", "Consumer complaint form"]
+  },
+  {
+    "id": "EH008",
+    "domain": "eviction_housing",
+    "scenario": "My landlord entered my rented flat without my permission while I was away.",
+    "expected_rights": ["Article 21", "Transfer of Property Act"],
+    "expected_actions": ["Send written notice to landlord about unauthorized entry", "Change locks if necessary and inform landlord", "File police complaint if harassment continues"],
+    "expected_forms": []
+  },
+  {
+    "id": "EH009",
+    "domain": "eviction_housing",
+    "scenario": "I received an eviction notice but it does not mention any court case or hearing date.",
+    "expected_rights": ["Transfer of Property Act", "Maharashtra Rent Control Act"],
+    "expected_actions": ["A notice alone cannot evict you - only a court order can", "Respond in writing that you dispute the eviction", "Appear if a court hearing is eventually scheduled"],
+    "expected_forms": ["Eviction complaint form"]
+  },
+  {
+    "id": "EH010",
+    "domain": "eviction_housing",
+    "scenario": "I live in government housing and have received an eviction notice. What are my rights?",
+    "expected_rights": ["Transfer of Property Act", "Article 21"],
+    "expected_actions": ["Request copy of the order and grounds for eviction", "File appeal with the appropriate government authority", "Seek legal aid from NALSA if you cannot afford a lawyer"],
+    "expected_forms": ["Appeal form to housing authority"]
+  },
+  {
+    "id": "CF001",
+    "domain": "consumer_fraud",
+    "scenario": "I bought a mobile phone online and it stopped working within 2 weeks. The seller is refusing to replace or refund it.",
+    "expected_rights": ["Consumer Protection Act 2019", "Section 2 Consumer Protection Act"],
+    "expected_actions": ["File complaint on e-daakhil.nic.in", "Send written complaint to seller with 15 day deadline", "Approach District Consumer Disputes Redressal Commission"],
+    "expected_forms": ["Consumer Complaint Form (Form A under CPA 2019)"]
+  },
+  {
+    "id": "CF002",
+    "domain": "consumer_fraud",
+    "scenario": "A company took money from me for a service and never delivered it. They are not responding to calls or emails.",
+    "expected_rights": ["Consumer Protection Act 2019"],
+    "expected_actions": ["File complaint on e-daakhil.nic.in", "Send registered post demand notice to company", "File police complaint for fraud if amount is significant"],
+    "expected_forms": ["Consumer Complaint Form (Form A under CPA 2019)"]
+  },
+  {
+    "id": "CF003",
+    "domain": "consumer_fraud",
+    "scenario": "A doctor charged me for tests that were never performed and the hospital bill has charges for services I never received.",
+    "expected_rights": ["Consumer Protection Act 2019"],
+    "expected_actions": ["Request itemized bill from hospital", "File complaint with District Consumer Forum", "File complaint with State Medical Council"],
+    "expected_forms": ["Consumer Complaint Form (Form A under CPA 2019)"]
+  },
+  {
+    "id": "CF004",
+    "domain": "consumer_fraud",
+    "scenario": "I paid for a gym membership for one year. The gym shut down after two months without any notice or refund.",
+    "expected_rights": ["Consumer Protection Act 2019"],
+    "expected_actions": ["File complaint on e-daakhil.nic.in for refund of remaining months", "Send legal notice to gym owner", "File police complaint if owner is absconding"],
+    "expected_forms": ["Consumer Complaint Form (Form A under CPA 2019)"]
+  },
+  {
+    "id": "CF005",
+    "domain": "consumer_fraud",
+    "scenario": "An online seller sent me a counterfeit product instead of the branded item I paid for.",
+    "expected_rights": ["Consumer Protection Act 2019"],
+    "expected_actions": ["Photograph the product and packaging as evidence", "File complaint on e-daakhil.nic.in", "Report to platform where you bought it", "Report to the brand whose product was counterfeited"],
+    "expected_forms": ["Consumer Complaint Form (Form A under CPA 2019)"]
+  },
+  {
+    "id": "CF006",
+    "domain": "consumer_fraud",
+    "scenario": "A bank charged me hidden fees that were not disclosed when I opened my account.",
+    "expected_rights": ["Consumer Protection Act 2019"],
+    "expected_actions": ["File complaint with bank's grievance officer first", "If unresolved in 30 days escalate to Banking Ombudsman", "File consumer complaint for unfair trade practice"],
+    "expected_forms": ["Banking Ombudsman complaint form", "Consumer Complaint Form (Form A under CPA 2019)"]
+  },
+  {
+    "id": "CF007",
+    "domain": "consumer_fraud",
+    "scenario": "I bought a home appliance with a 2 year warranty but the company is refusing to honor the warranty.",
+    "expected_rights": ["Consumer Protection Act 2019"],
+    "expected_actions": ["Send written complaint to company with warranty document", "File complaint on e-daakhil.nic.in", "Approach District Consumer Disputes Redressal Commission"],
+    "expected_forms": ["Consumer Complaint Form (Form A under CPA 2019)"]
+  },
+  {
+    "id": "CF008",
+    "domain": "consumer_fraud",
+    "scenario": "A travel company took full payment for a holiday package and cancelled it without giving a refund.",
+    "expected_rights": ["Consumer Protection Act 2019"],
+    "expected_actions": ["Send demand notice to travel company for full refund", "File complaint on e-daakhil.nic.in", "File complaint with Ministry of Tourism if company is registered"],
+    "expected_forms": ["Consumer Complaint Form (Form A under CPA 2019)"]
+  },
+  {
+    "id": "CF009",
+    "domain": "consumer_fraud",
+    "scenario": "A builder took money from me for a flat and has not delivered it even after 4 years past the promised date.",
+    "expected_rights": ["Consumer Protection Act 2019", "RERA Act"],
+    "expected_actions": ["File complaint with state RERA authority", "Seek refund with interest through RERA", "File consumer complaint in parallel for compensation"],
+    "expected_forms": ["RERA complaint form", "Consumer Complaint Form (Form A under CPA 2019)"]
+  },
+  {
+    "id": "CF010",
+    "domain": "consumer_fraud",
+    "scenario": "An insurance company rejected my valid claim without giving any proper reason.",
+    "expected_rights": ["Consumer Protection Act 2019"],
+    "expected_actions": ["Request written rejection letter with reasons", "File complaint with Insurance Ombudsman", "File consumer complaint for deficiency of service"],
+    "expected_forms": ["Insurance Ombudsman complaint form", "Consumer Complaint Form (Form A under CPA 2019)"]
+  }
+]
