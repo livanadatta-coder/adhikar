@@ -1,0 +1,242 @@
+[
+  {
+    "id": "PF001",
+    "domain": "police_fir",
+    "rights_recall": 1.0,
+    "actions_recall": 1.0,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "PF002",
+    "domain": "police_fir",
+    "rights_recall": 1.0,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "PF003",
+    "domain": "police_fir",
+    "rights_recall": 0.5,
+    "actions_recall": 1.0,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "PF004",
+    "domain": "police_fir",
+    "rights_recall": 0.3333333333333333,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "PF005",
+    "domain": "police_fir",
+    "rights_recall": 0.6666666666666666,
+    "actions_recall": 1.0,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "PF006",
+    "domain": "police_fir",
+    "rights_recall": 0.5,
+    "actions_recall": 0.3333333333333333,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "PF007",
+    "domain": "police_fir",
+    "rights_recall": 0.6666666666666666,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "PF008",
+    "domain": "police_fir",
+    "rights_recall": 0.0,
+    "actions_recall": 0.3333333333333333,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "PF009",
+    "domain": "police_fir",
+    "rights_recall": 0.3333333333333333,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "PF010",
+    "domain": "police_fir",
+    "rights_recall": 0.3333333333333333,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH001",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH002",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.0,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH003",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.0,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH004",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH005",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH006",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.0,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH007",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH008",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.3333333333333333,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH009",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.3333333333333333,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "EH010",
+    "domain": "eviction_housing",
+    "rights_recall": 0.0,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF001",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 1.0,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF002",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 0.3333333333333333,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF003",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF004",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF005",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 0.25,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF006",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 0.3333333333333333,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF007",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 0.0,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF008",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 0.3333333333333333,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF009",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 0.6666666666666666,
+    "forms_recall": 1.0,
+    "error": null
+  },
+  {
+    "id": "CF010",
+    "domain": "consumer_fraud",
+    "rights_recall": 0.0,
+    "actions_recall": 0.3333333333333333,
+    "forms_recall": 1.0,
+    "error": null
+  }
+]
