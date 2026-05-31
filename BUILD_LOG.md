@@ -248,3 +248,197 @@ Milestone ✓
 - **Phase 4 — Deploy:** Hugging Face Spaces (free tier)
 - **Switch to Claude API for final demo:** Better structured output quality for production
 - **Improve actions recall:** Currently 63-72% — query expansion for actions similar to rights retrieval fix
+- **Improve actions recall:** Currently 63-72% — query expansion for actions similar to rights retrieval fix
+
+---
+
+## Day 5 — 30 May 2026
+
+**Built:**
+- `utils/translator.py` — full multilingual translation module:
+  - `detect_language(text)` — langdetect-based detection for en/hi/kn/ta/te, falls back to 'en' on failure
+  - `translate_to_english(text, src_lang)` — deep-translator (Google Translate) wrapper
+  - `translate_from_english(text, tgt_lang)` — reverse translation
+  - `translate_response(response_dict, tgt_lang)` — translates only text VALUES in the ResponseSchema dict, preserving source_act, source_section, url, priority, requires_lawyer, and sources[] untranslated
+- `pipeline.py` — main entry point wiring the full 7-stage pipeline:
+  - Stage 1: language detection
+  - Stage 2: translate to English
+  - Stage 3: classify domain (Classifier Agent)
+  - Stage 4: 3-pass retrieval (retrieve_for_rights)
+  - Stage 5: Rights + Actions + Forms agents
+  - Stage 6: Synthesis Agent → ResponseSchema
+  - Stage 7: translate response back to user language
+  - Interactive mode (`python pipeline.py`) and test mode (`python pipeline.py --test`)
+  - `--lang` flag to force output language for testing
+- GitHub repository set up at github.com/livanadatta-coder/adhikar — public repo for portfolio
+
+**Test Results — Multilingual pipeline (all 4 languages):**
+
+| Language | Query | Detection | Translation | Domain | Rights |
+|----------|-------|-----------|-------------|--------|--------|
+| English | Police at house without warrant | ✓ en | — | police_fir 80% | 4 ✓ |
+| Hindi | पुलिस बिना वारंट के गिरफ्तार करना चाहती है | ✓ hi | ✓ | police_fir 80% | 4 ✓ |
+| Hindi | मकान मालिक ने बिना नोटिस घर से निकाला | ✓ hi | ✓ | eviction_housing 90% | 4 ✓ |
+| Kannada | ಪೊಲೀಸರು ವಾರಂಟ್ ಇಲ್ಲದೆ ಬಂಧಿಸಲು ಬಂದಿದ್ದಾರೆ | ✓ kn | ✓ | police_fir 80% | 4 ✓ |
+| Tamil | வாரண்ட் இல்லாமல் போலீஸ் கைது செய்ய வந்தார்கள் | ✓ ta | ✓ | police_fir 80% | 4 ✓ |
+| Telugu | పోలీసులు వారెంట్ లేకుండా అరెస్టు చేయడానికి వచ్చారు | ✓ te | ✓ | police_fir 80% | 4 ✓ |
+
+5/5 language detection correct. All 4 Indian languages returning full 3-part responses in the correct language. Source citations (CrPC sections, Article numbers) preserved in English throughout.
+
+**Broke:**
+- `.env` file with Groq API key accidentally committed to Git — GitHub push protection blocked the push. Fixed by running `git filter-branch` to rewrite commit history and remove `.env` from all past commits. Groq API key rotated immediately
+- `.gitignore.txt` (Windows saved it with .txt extension) wasn't being picked up by Git — venv, db/, __pycache__, .env, evaluation results all got tracked. Fixed by renaming to `.gitignore` and running `git rm --cached` on all affected files
+- `git push --force` alone wasn't enough to remove the secret — GitHub scans commit history, not just current state. Had to rewrite history with `git filter-branch --force --index-filter "git rm --cached --ignore-unmatch .env"`
+
+**Learned:**
+- Never commit `.env`. On Windows, always verify `.gitignore` saved without `.txt` extension — open File Explorer, enable "show file extensions"
+- `git rm --cached` only stops tracking a file going forward — it does NOT remove it from commit history. To scrub history: `git filter-branch` or `git filter-repo`
+- GitHub push protection scans every commit in the push, not just HEAD — rewriting history is the only real fix
+- translate-at-the-edges is the right architecture — keeping all LLM calls in English means the same pipeline, same prompts, same retrieval works for all 5 languages. Translation is truly just a wrapper
+- `translate_response()` must skip citation fields (source_act, source_section, sources[]) — translating "Section 41 CrPC" to Hindi produces garbage. Only translate human-readable text fields
+- deep-translator is fast and good enough for a portfolio demo. IndicTrans2 would be better for production Indian legal text but the architecture supports a one-file swap
+
+**Architecture decisions made:**
+- Translation module is isolated in `utils/translator.py` — swapping deep-translator for IndicTrans2 is a single file change, no changes to pipeline.py or any agent
+- `pipeline.py` is the single entry point — frontend (Streamlit) will call `run_pipeline()` directly
+- Language is detected once at the top and passed through — no repeated detection calls
+
+**Milestone ✓**
+- [x] Language detection: 5/5 correct (en, hi, kn, ta, te)
+- [x] Hindi → English → Hindi round trip working
+- [x] All 4 Indian languages producing full 3-part responses
+- [x] Source citations preserved in English across all languages
+- [x] `pipeline.py` wires full 7-stage pipeline end to end
+- [x] GitHub repo live at github.com/livanadatta-coder/adhikar
+- [x] Phase 3 complete — multilingual layer done
+
+**Multilingual answer (interview ready):**
+"The translation layer uses a translate-at-the-edges architecture — the vector store, all agent prompts, and all LLM calls operate in English. Only the user's input and the final response are translated, using Google Translate via deep-translator as a drop-in. The architecture is designed for IndicTrans2 — swapping translation models is a single file change in utils/translator.py. Language detection uses langdetect and correctly identifies Hindi, Kannada, Tamil, and Telugu. The translate_response() function translates only human-readable text fields in the ResponseSchema, explicitly skipping citation fields like source_act and source_section — translating legal citations would corrupt them."
+
+---
+
+## Upcoming
+
+- **Phase 3.5 — Voice input:** Whisper integration for speech-to-text (Hindi, Tamil, Kannada, Indian-accented English)
+- **Phase 4 — Streamlit frontend:** Category tiles (8 domains), response card (3-part), language selector, microphone button
+- **Phase 4 — Emergency rights card:** PDF + WhatsApp-shareable PNG using ReportLab
+- **Phase 4 — Offline cache:** Pre-generate responses for 6 critical scenarios in all 5 languages
+- **Phase 4 — Anonymous case logging:** SQLite, opt-in, domain + district + timestamp only
+- **Phase 4 — Deploy:** Hugging Face Spaces or Streamlit Cloud
+- **Switch to Claude API:** Better structured output quality for production demo
+
+---
+
+## Day 6 — 30 May 2026
+
+**Built:**
+- Switched frontend from planned Streamlit to **React + Vite** — better component control, more portfolio-appropriate, easier to style for accessibility
+- Full React frontend (`frontend/`) wired to the FastAPI backend (`api.py`) already running on port 8000:
+  - `App.jsx` — root component, manages language/query/loading/response/error state, calls `queryAdhikar()` on submit
+  - `components/LanguageSelector.jsx` — 5-language toggle (English, हिन्दी, ಕನ್ನಡ, தமிழ், తెలుగు), updates placeholder and submit button text
+  - `components/CategoryGrid.jsx` — 4 tap tiles with full plain-language sentence labels ("Police came to my house", not "Police / FIR"). Only the 4 domains with working backend coverage — removed the other 4 to avoid dead buttons
+  - `components/ResponseCard.jsx` — 3-section response display: Your Rights (numbered, cited), Do This Now (checkable action list), Forms & Documents. Sources toggle, disclaimer, NALSA helpline bar
+  - `components/LoadingSpinner.jsx` — language-aware loading text
+  - `api/adhikar.js` — fetch wrapper for POST /query and GET /languages
+- Designed and iterated the visual system through multiple rounds:
+  - Palette: deep forest green (`#2D4A28`) header, aged paper background (`#EDE5D0`), ochre accent (`#C8882A`), dark ink text — warm and grounded, not digital
+  - Typography: **Fraunces** (optical serif, warm, not childish) for all headings, logo, and CTAs — **Nunito** for all body text
+  - Layout: horizontal category tiles with left accent bar — poster logic, not card grid. Full-sentence chip labels for low-literacy accessibility
+  - Tap targets: minimum 80px tile height, 58px submit button — designed for rural users on mobile
+  - Removed all white backgrounds, gradients, drop shadows, and decorative elements
+
+**Design decisions:**
+- Scrapped 8-category grid — 5 categories had no backend, showing broken tiles is worse than showing fewer working ones. Kept 4 that map directly to working domains (police_fir, eviction_housing, workplace_salary, court_bail)
+- Full sentence labels over short labels — "Police came to my house" is immediately recognisable to a low-literacy user; "Police / FIR" is not
+- Fraunces over Caveat — Caveat read as childish at heading size. Fraunces is warm and humanist but carries editorial weight appropriate for legal aid
+- Forest green over terracotta/saffron — feels grounded and trustworthy rather than urgent or alarming, which matters for users already in a stressful situation
+- Placeholder text is a real example sentence — guides the user exactly what to write without a tutorial
+
+**Broke:**
+- Initial "Failed to fetch" on all queries — backend wasn't running. Not a code error; both terminals need to be open simultaneously (uvicorn on 8000, npm run dev on 5173)
+- Google Fonts not loading — `index.html` was missing the `<link>` tag for Fraunces + Nunito. Fixed by updating `frontend/index.html` with preconnect and stylesheet links
+
+**Learned:**
+- Accessibility and aesthetics aren't opposites — designing for a low-literacy rural user (large tap targets, plain-language labels, warm non-threatening colours) produces a cleaner, more intentional UI than designing for "looks good on a portfolio"
+- Remove broken features rather than ship them — 5 dead category tiles would confuse a real user and signal poor QA to a recruiter. 4 working tiles is better than 8 half-working ones
+- Font choice carries tone — a single font swap (Caveat → Fraunces) changed the perceived register of the entire app from craft-project to serious tool
+
+**Milestone ✓**
+- [x] React + Vite frontend running on `localhost:5173`
+- [x] Connected to FastAPI backend on `localhost:8000` — end-to-end query working
+- [x] Language selector switches placeholder text and submit button text across all 5 languages
+- [x] 4 working category tiles fire real backend queries
+- [x] ResponseCard renders 3-part response: rights, actions, forms
+- [x] Fraunces + Nunito typography system applied throughout
+- [x] Designed for accessibility: large tap targets, plain-language labels, warm non-threatening palette
+
+**Frontend answer (interview ready):**
+"The frontend is React + Vite, connected to a FastAPI backend. The key design constraint was accessibility for low-literacy rural users — every category tile uses a full plain-language sentence so the user immediately recognises their situation, tap targets are 80px minimum, and the colour palette is warm and non-threatening rather than clinical. We only surface the 4 domains with working backend coverage — showing broken features is worse than fewer features. The language selector switches placeholder text and CTA copy across 5 languages, consistent with the translate-at-the-edges architecture in the backend."
+
+---
+
+## Upcoming
+
+- **Phase 3.5 — Voice input:** Whisper integration for speech-to-text
+- **Phase 4 — Emergency rights card:** PDF + WhatsApp-shareable PNG using ReportLab
+- **Phase 4 — Offline cache:** Pre-generate responses for 6 critical scenarios in all 5 languages
+- **Phase 4 — Deploy:** Hugging Face Spaces or Streamlit Cloud
+- **Switch to Claude API:** Better structured output for production demo
+- **Expand category tiles:** Add eviction and consumer fraud tiles once corpus is solid
+- **Actions recall improvement:** Currently 63–72% — query expansion for actions similar to rights retrieval fix
+
+---
+
+## Day 7 — 31 May 2026
+
+**Built:**
+- `utils/transcriber.py` — local Whisper wrapper
+  - Model: `small` (461MB, good Indian accent coverage, ~10x realtime on CPU)
+  - Loaded once at module level, reused across requests
+  - Auto-detects language from audio — returns Adhikar language code (en/hi/kn/ta/te)
+  - Converts avg_logprob → confidence float for frontend feedback
+  - Writes audio to tempfile, calls `model.transcribe()`, cleans up
+- `POST /transcribe` endpoint in `api.py`
+  - Accepts `multipart/form-data` audio upload (webm/wav/mp3/ogg/mp4)
+  - Validates file type and minimum size (rejects < 1KB)
+  - Returns `{ text, language, confidence }`
+- Frontend voice input in `App.jsx`
+  - 🎤 button inside textarea (bottom-right, absolute positioned)
+  - Uses `MediaRecorder` API to capture audio from microphone
+  - Tap to start → red pulsing dot indicator → tap to stop → sends blob to `/transcribe`
+  - Transcribed text fills textarea automatically
+  - If Whisper detects Hindi/Kannada/Tamil/Telugu, UI language switches automatically
+  - Disabled state during transcription with ⏳ indicator
+- `transcribeAudio()` added to `api/adhikar.js`
+- Mic button CSS: pulse animation while recording, blink dot indicator, disabled states
+
+**Decisions:**
+- Local Whisper over OpenAI API — no API key, no cost, works offline, aligns with offline-capable goal
+- `small` model over `tiny` — better accuracy on Indian-accented speech, still fast enough on CPU
+- Translate-at-the-edges unchanged — Whisper transcribes in the original language, existing `translate_to_english()` handles the rest. No pipeline changes needed.
+- Auto language switch on transcription — if user speaks Hindi, UI switches to Hindi so response comes back in Hindi. Feels seamless.
+
+**Install:**
+```bash
+pip install openai-whisper
+winget install ffmpeg   # Windows; brew install ffmpeg on Mac
+```
+First transcription downloads the small model (~460MB, one-time).
+
+**Milestone ✓**
+- [x] Voice input working end-to-end — speak → transcribe → fill textarea → submit
+- [x] Auto language detection from speech
+- [x] No API key or internet required for transcription
+- [x] ffmpeg installed system-wide, Whisper installed in venv
+
+**Voice answer (interview ready):**
+"Voice input uses local OpenAI Whisper — the small model runs on CPU, no API key needed. The architecture is clean: Whisper sits before the pipeline as an input preprocessor. It transcribes audio to text and detects the language, then the existing translate-at-the-edges layer handles everything from there. No pipeline changes were needed. The small model handles Indian-accented Hindi, Kannada, Tamil and Telugu reasonably well — good enough for a portfolio demo, and swappable for IndicWhisper in production."
+
+---
+
+## Upcoming
+
+- **Deploy** — Hugging Face Spaces (backend) + Vercel (frontend)
+- **README + screenshots** — GitHub repo cleanup before deploy
+- **Expand corpus** — consumer fraud and domestic violence domains
+- **Actions recall improvement** — currently 63–72%
