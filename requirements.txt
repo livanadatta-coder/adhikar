@@ -16,8 +16,9 @@ chromadb==0.6.3
 # Embeddings
 sentence-transformers==3.4.1
 
-# LLM
-groq==0.11.0
+# LLM — must be >=0.13.0 for httpx compatibility
+groq==0.13.0
+httpx==0.27.0
 
 # Translation / language detection
 deep-translator==1.11.4
