@@ -24,14 +24,18 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from pipeline import run_pipeline, load_vectorstore
 from utils.translator import SUPPORTED_LANGUAGES
-from utils.transcriber import transcribe_audio
+try:
+    from utils.transcriber import transcribe_audio
+    WHISPER_AVAILABLE = True
+except ImportError:
+    WHISPER_AVAILABLE = False
 
 app = FastAPI(title="Adhikar API", version="1.0")
 
 # Allow React dev server to call this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -91,40 +95,29 @@ def languages():
 
 @app.post("/transcribe", response_model=TranscribeResponse)
 async def transcribe(file: UploadFile = File(...)):
-    """
-    Accepts an audio file (webm/wav/mp3/ogg) and returns transcribed text.
-    The frontend records via MediaRecorder API and sends the blob here.
-    Whisper auto-detects the language.
-    """
-    # Validate file type
+    if not WHISPER_AVAILABLE:
+        raise HTTPException(
+            status_code=503,
+            detail="Voice input is not available in the deployed version. Please type your query."
+        )
+
     allowed = {"audio/webm", "audio/wav", "audio/mpeg", "audio/ogg", "audio/mp4"}
     if file.content_type and file.content_type not in allowed:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Unsupported audio format: {file.content_type}"
-        )
+        raise HTTPException(status_code=400, detail=f"Unsupported audio format: {file.content_type}")
 
     audio_bytes = await file.read()
     if len(audio_bytes) < 1000:
         raise HTTPException(status_code=400, detail="Audio too short — please speak for at least 2 seconds")
 
-    # Get file extension from content type
     ext_map = {
-        "audio/webm": "webm",
-        "audio/wav": "wav",
-        "audio/mpeg": "mp3",
-        "audio/ogg": "ogg",
-        "audio/mp4": "mp4",
+        "audio/webm": "webm", "audio/wav": "wav",
+        "audio/mpeg": "mp3", "audio/ogg": "ogg", "audio/mp4": "mp4",
     }
     ext = ext_map.get(file.content_type or "", "webm")
 
     try:
         result = transcribe_audio(audio_bytes, file_ext=ext)
-        return TranscribeResponse(
-            text=result["text"],
-            language=result["language"],
-            confidence=result["confidence"],
-        )
+        return TranscribeResponse(text=result["text"], language=result["language"], confidence=result["confidence"])
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Transcription failed: {str(e)}")
 
