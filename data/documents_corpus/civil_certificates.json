@@ -1,0 +1,191 @@
+{
+  "domain": "civil_certificates",
+  "documents": [
+    {
+      "id": "birth_certificate_original",
+      "title": "Birth Certificate (Original / Duplicate)",
+      "description": "Official record of birth issued by Municipal Corporation, Gram Panchayat, or Civil Registration System. Required for school admissions, passport, Aadhaar, government jobs.",
+      "required_documents": [
+        {
+          "category": "For registering a NEW birth (within 21 days)",
+          "options": [
+            "Hospital discharge slip (if hospital birth) — hospital files report directly",
+            "For home births: Informant's identity proof (parent Aadhaar/Voter ID)",
+            "Parent's marriage certificate",
+            "Parents' identity proofs"
+          ]
+        },
+        {
+          "category": "For DELAYED registration (after 21 days, within 1 year) — additional documents",
+          "options": [
+            "Affidavit from parent/guardian",
+            "School leaving/transfer certificate (if child is school-going)",
+            "Verification certificate from local official (village headman, ward officer)"
+          ]
+        },
+        {
+          "category": "For DUPLICATE / certified copy of existing certificate",
+          "options": [
+            "Application form from Municipal/Panchayat office",
+            "Proof of identity of applicant (Aadhaar / Voter ID)",
+            "Details of original registration: registration number, date of birth, place of birth",
+            "Relationship proof (if applying on behalf of another person)"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Identify the correct issuing authority",
+          "detail": "Urban area (town/city): Contact Municipal Corporation / Municipality Birth & Death Registration office. Rural area: Contact Gram Panchayat or Block Development Office (BDO). Hospitals: Larger hospitals have their own registration desk.",
+          "tip": "The authority covers the area where the birth actually occurred, not where you currently live."
+        },
+        {
+          "step": 2,
+          "title": "Search for existing registration",
+          "detail": "If birth was registered earlier, ask for the Registration Number. Many states now have online search: visit your state civil registration portal. Maharashtra: aaplesarkar.mahaonline.gov.in | Karnataka: sevasindhu.karnataka.gov.in | Tamil Nadu: tnreginet.gov.in | Telangana: crsorgi.gov.in",
+          "tip": "If you know the hospital, they usually have records even if you don't have the registration number."
+        },
+        {
+          "step": 3,
+          "title": "Apply online (where available) or visit office",
+          "detail": "Online: Go to your state's Civil Registration portal → Search/apply for birth certificate → Fill form with date/place/parents' names → Pay fee → Download or collect certificate. Offline: Visit the municipal/panchayat office with identity proof and fill prescribed application form.",
+          "tip": "Online portals are available in Maharashtra, Karnataka, Delhi, Tamil Nadu, Telangana, AP, Rajasthan, UP, and others."
+        },
+        {
+          "step": 4,
+          "title": "For late/delayed registration (birth not yet registered)",
+          "detail": "Visit BDO/Municipal office → Submit affidavit + supporting documents → Application reviewed by Medical Officer or Revenue Officer → If approved, registration is done and certificate issued. Process takes 30–60 days.",
+          "tip": "A notarised affidavit from parent/guardian stating the birth details is the most important document for delayed registration."
+        },
+        {
+          "step": 5,
+          "title": "For very old births (pre-1970) — special process",
+          "detail": "Records may be in district registrar archives. Visit District Registrar's office with approximate birth details. Some states have digitised old records; check your state portal. If not found, you may need to get a Non-Availability Certificate (NAC) from the Registrar, which is accepted as substitute proof.",
+          "tip": "Non-Availability Certificate (NAC) is legally accepted for Aadhaar, passport, and most government purposes in place of birth certificate."
+        },
+        {
+          "step": 6,
+          "title": "Collect and verify certificate",
+          "detail": "Certificate shows: child's name, parents' names, date/time/place of birth, registration number, registrar's signature and seal. Verify all spellings carefully.",
+          "tip": "If any detail is wrong, apply for correction immediately — corrections require affidavit and are harder to do years later."
+        }
+      ],
+      "fees": "₹0–50 for first copy | ₹20–100 for duplicate (varies by state)",
+      "processing_time": "Same day to 7 days (online) | 7–30 days (offline/delayed registration)",
+      "helpline": "Vary by state — check your state Civil Registration portal",
+      "website": "https://crsorgi.gov.in (Central Registry)"
+    },
+    {
+      "id": "marriage_certificate",
+      "title": "Marriage Certificate",
+      "description": "Official registration of marriage under Hindu Marriage Act 1955 or Special Marriage Act 1954. Required for spouse visa, passport name change, joint property, and bank accounts.",
+      "required_documents": [
+        {
+          "category": "Both bride and groom must provide",
+          "options": [
+            "Age proof (Birth Certificate / Matriculation Certificate / Passport) — groom must be 21+, bride must be 18+",
+            "Address proof (Aadhaar / Voter ID / Passport / Driving Licence)",
+            "Passport-size photographs (4 each, usually)",
+            "Marriage photograph (if registering after ceremony)"
+          ]
+        },
+        {
+          "category": "Marriage-specific documents",
+          "options": [
+            "Invitation card of the marriage (if already solemnised)",
+            "Two witnesses with their Aadhaar/Voter ID (must be present at office)",
+            "Priest/Pandit certificate (for Hindu marriages)",
+            "Affidavit by both parties stating date, place, marital status (not previously married or if widowed/divorced, proof of same)"
+          ]
+        },
+        {
+          "category": "If previously married",
+          "options": [
+            "Death certificate of deceased spouse (if widow/widower)",
+            "Divorce decree from court (if divorced)"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Choose the applicable law and office",
+          "detail": "Hindu Marriage Act: For Hindus, Buddhists, Jains, Sikhs — register at Sub-Registrar's office in the area where marriage took place or either party resides. Special Marriage Act: For inter-religion marriages or any couple — register at Marriage Registration Office (Sub-Divisional Magistrate's office). Court Marriage = Special Marriage Act.",
+          "tip": "Special Marriage Act requires 30-day notice period before solemnisation."
+        },
+        {
+          "step": 2,
+          "title": "Online appointment booking (in most cities)",
+          "detail": "Most states now have online portals. Maharashtra: aaplesarkar.mahaonline.gov.in | Delhi: edistrict.delhigovt.nic.in | Karnataka: sevasindhu.karnataka.gov.in. Book appointment, fill form online, and pay fee.",
+          "tip": "Bring all originals + one set of self-attested photocopies."
+        },
+        {
+          "step": 3,
+          "title": "Visit office with both parties + 2 witnesses",
+          "detail": "Both bride and groom must be physically present. Two witnesses (any adult Indian citizens) must also be present with their photo ID. Submit documents, sign the register.",
+          "tip": "Marriage certificate is usually issued the same day for Hindu Marriage Act registrations."
+        },
+        {
+          "step": 4,
+          "title": "Special Marriage Act — 30-day notice",
+          "detail": "File notice at SDM office → Notice is displayed publicly for 30 days → If no objections, marriage is solemnised at the office → Certificate issued same day.",
+          "tip": "During the 30-day notice period, anyone can raise an objection. This is a legal requirement and cannot be bypassed."
+        }
+      ],
+      "fees": "₹100–500 (varies by state)",
+      "processing_time": "Same day (Hindu Marriage Act) | 30+ days (Special Marriage Act)",
+      "helpline": "Contact your local Sub-Registrar's office",
+      "website": "Varies by state — check your state's revenue/registration portal"
+    },
+    {
+      "id": "death_certificate",
+      "title": "Death Certificate",
+      "description": "Official record of death issued by Municipal Authority or Gram Panchayat. Required for insurance claims, property inheritance, pension, bank account closure.",
+      "required_documents": [
+        {
+          "category": "For registering a death",
+          "options": [
+            "Hospital death summary / Medical cause of death certificate (if hospital death)",
+            "For home deaths: Informant's identity proof (family member's Aadhaar/Voter ID)",
+            "Identity proof of the deceased (any government ID)",
+            "Address proof of the deceased"
+          ]
+        },
+        {
+          "category": "For DUPLICATE certificate",
+          "options": [
+            "Application form from Municipal/Panchayat office",
+            "Applicant's identity proof",
+            "Relationship proof with deceased",
+            "Registration number / details of original registration"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Register within 21 days of death",
+          "detail": "Hospital deaths: Hospital files report directly — you only need to collect the certificate from the hospital or municipal office. Home deaths: Inform the local authority (municipal ward office or Gram Panchayat) within 21 days.",
+          "tip": "Cremation/burial grounds in urban areas also report deaths to the municipality."
+        },
+        {
+          "step": 2,
+          "title": "Apply for certificate online or at municipal office",
+          "detail": "Use your state's civil registration portal (same as birth certificate portals) or visit the municipal office with required documents. Fill application form, submit documents, pay fee.",
+          "tip": null
+        },
+        {
+          "step": 3,
+          "title": "For delayed registration (after 21 days)",
+          "detail": "Attach affidavit from family member + any supporting proof of death (hospital records, religious ceremony records, witness statements). Approval required from Medical Officer or local magistrate.",
+          "tip": "Police report is sometimes asked for unexplained or sudden deaths."
+        }
+      ],
+      "fees": "₹0–50 for first copy | ₹20–100 for duplicate",
+      "processing_time": "Same day to 7 days",
+      "helpline": "Contact your local Municipal Corporation",
+      "website": "https://crsorgi.gov.in (Central Registry)"
+    }
+  ]
+}

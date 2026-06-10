@@ -1,12 +1,13 @@
 """
-agents/classifier_agent.py — Phase 2, Week 2
-Rewritten for Groq API (llama-3.3-70b-versatile).
+agents/classifier_agent.py
+Original 8-domain legal classifier, updated to:
+  1. Lazily initialise Groq client (so load_dotenv() in pipeline.py runs first)
+  2. Add documents domain pre-check before legal classification
+  3. Expose classify_query() shim used by api.py for domain routing
 """
 
 import json
 import os
-import sys
-from pathlib import Path
 from typing import Optional
 
 from groq import Groq
@@ -14,7 +15,15 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 
 load_dotenv()
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
+# ── Lazy Groq client — created on first use, after load_dotenv() ──────────────
+_client = None
+def _get_client():
+    global _client
+    if _client is None:
+        _client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    return _client
+
 MODEL = "llama-3.3-70b-versatile"
 
 
@@ -68,12 +77,42 @@ Rules:
 User situation: {query}"""
 
 
+# ── Documents domain pre-check ────────────────────────────────────────────────
+# Catches document-guidance queries before they reach the legal classifier,
+# so api.py can route them to documents_agent instead.
+
+_DOCUMENTS_KEYWORDS = [
+    "aadhaar", "aadhar", "pan card", "voter id", "voter card", "election card",
+    "passport", "birth certificate", "marriage certificate", "death certificate",
+    "sale deed", "land record", "7/12", "satbara", "encumbrance", "khata",
+    "mutation", "bhulekh", "patta", "pahani", "stamp duty",
+    "how to apply for", "what documents do i need", "apply for a",
+    "encumbrance certificate", "property registration",
+]
+
+def _is_documents_query(query: str) -> bool:
+    q = query.lower()
+    return any(kw in q for kw in _DOCUMENTS_KEYWORDS)
+
+
+def classify_query(query: str) -> dict:
+    """
+    Used by api.py to check domain before running the full pipeline.
+    Returns {"domain": str, "confidence": float}.
+    Documents queries are caught here; everything else goes to run_classifier_agent.
+    """
+    if _is_documents_query(query):
+        return {"domain": "documents", "confidence": 0.90}
+    result = run_classifier_agent(query)
+    return {"domain": result.domain, "confidence": result.confidence}
+
+
 # ── Agent ─────────────────────────────────────────────────────────────────────
 
 def run_classifier_agent(query: str) -> ClassifierResponse:
     prompt = CLASSIFIER_PROMPT.format(query=query)
 
-    response = client.chat.completions.create(
+    response = _get_client().chat.completions.create(
         model=MODEL,
         messages=[{"role": "user", "content": prompt}],
         temperature=0.1,
@@ -117,12 +156,22 @@ def test():
         ("I have been in jail for 6 months waiting for my bail hearing.", "court_bail"),
         ("I am not receiving my PM-KISAN payments even though I am eligible.", "government_schemes"),
         ("I have a problem with my house.", None),
+        ("How do I apply for a passport?", "documents"),
+        ("What documents do I need for aadhaar?", "documents"),
     ]
 
     print("\n=== CLASSIFIER AGENT TEST ===\n")
     passed = 0
     for query, expected_domain in test_cases:
         try:
+            if expected_domain == "documents":
+                result = classify_query(query)
+                ok = result["domain"] == "documents"
+                print(f"\n  Query: {query}")
+                print(f"  Domain: {result['domain']} ({'✓' if ok else '✗'})")
+                if ok: passed += 1
+                continue
+
             response = run_classifier_agent(query)
             print_response(query, response)
             if expected_domain:

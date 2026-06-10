@@ -9,6 +9,9 @@ Endpoints:
   GET  /health     — health check
   GET  /languages  — supported languages
 
+  GET  /documents/list       — list all document guidance entries   [NEW]
+  GET  /documents/{doc_id}   — get full guidance for one document   [NEW]
+
 Run:
   uvicorn api:app --reload --port 8000
 """
@@ -24,13 +27,15 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from pipeline import run_pipeline, load_vectorstore
 from utils.translator import SUPPORTED_LANGUAGES
+from agents.documents_agent import run_documents_agent, _ALL_DOCUMENTS   # NEW
+
 try:
     from utils.transcriber import transcribe_audio
     WHISPER_AVAILABLE = True
 except ImportError:
     WHISPER_AVAILABLE = False
 
-app = FastAPI(title="Adhikar API", version="1.0")
+app = FastAPI(title="Adhikar API", version="1.1")
 
 # Allow React dev server to call this API
 app.add_middleware(
@@ -63,14 +68,39 @@ class QueryResponse(BaseModel):
     response_lang: str
     clarification_needed: bool = False
     clarification_question: Optional[str] = None
+    documents_result: Optional[dict] = None   # NEW — populated when domain=documents
 
 class TranscribeResponse(BaseModel):
     text: str
-    language: str       # detected language code
-    confidence: float   # 0-1
+    language: str
+    confidence: float
+
+# NEW — documents schemas
+class DocumentSummary(BaseModel):
+    id: str
+    title: str
+    description: str
+    domain: str
+    fees: Optional[str]
+    processing_time: Optional[str]
+
+class DocumentDetail(BaseModel):
+    success: bool
+    matched_document: Optional[str]
+    domain: Optional[str]
+    title: Optional[str]
+    description: Optional[str]
+    plain_summary: str
+    required_documents: list
+    process_steps: list
+    fees: Optional[str]
+    processing_time: Optional[str]
+    helpline: Optional[str]
+    website: Optional[str]
+    not_found_message: Optional[str]
 
 
-# ── Endpoints ─────────────────────────────────────────────────────────────────
+# ── Existing endpoints (unchanged) ────────────────────────────────────────────
 
 @app.get("/health")
 def health():
@@ -128,6 +158,28 @@ def query(request: QueryRequest):
         raise HTTPException(status_code=400, detail="Query cannot be empty")
 
     try:
+        # ── Check if this is a documents query first ──────────────────────────
+        # Import classifier to check domain without running full pipeline
+        from agents.classifier_agent import classify_query
+        classification = classify_query(request.query)
+
+        if classification["domain"] == "documents":
+            doc_result = run_documents_agent(request.query)
+            # Return a QueryResponse with documents_result populated
+            # and empty legal fields so frontend doesn't break
+            return QueryResponse(
+                domain="documents",
+                rights=[],
+                actions=[],
+                forms=[],
+                disclaimer="",
+                sources=[],
+                detected_lang=request.language or "en",
+                response_lang="English",
+                documents_result=doc_result,
+            )
+
+        # ── Existing legal pipeline for all other domains ─────────────────────
         result = run_pipeline(
             query=request.query,
             vectorstore=vectorstore,
@@ -144,6 +196,51 @@ def query(request: QueryRequest):
             response_lang=result.get("response_lang", "English"),
             clarification_needed=result.get("clarification_needed", False),
             clarification_question=result.get("clarification_question"),
+            documents_result=None,
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ── New documents endpoints ───────────────────────────────────────────────────
+
+@app.get("/documents/list", response_model=list[DocumentSummary])
+def list_documents():
+    """Returns all available document guidance entries for the Documents tab."""
+    return [
+        DocumentSummary(
+            id=doc["id"],
+            title=doc["title"],
+            description=doc.get("description", ""),
+            domain=doc.get("_domain", ""),
+            fees=doc.get("fees"),
+            processing_time=doc.get("processing_time"),
+        )
+        for doc in _ALL_DOCUMENTS
+    ]
+
+
+@app.get("/documents/{doc_id}", response_model=DocumentDetail)
+def get_document(doc_id: str):
+    """Returns full guidance for a specific document by ID."""
+    doc = next((d for d in _ALL_DOCUMENTS if d["id"] == doc_id), None)
+    if not doc:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Document '{doc_id}' not found. Call /documents/list for valid IDs."
+        )
+    return DocumentDetail(
+        success=True,
+        matched_document=doc["id"],
+        domain=doc.get("_domain"),
+        title=doc["title"],
+        description=doc.get("description", ""),
+        plain_summary="",
+        required_documents=doc.get("required_documents", []),
+        process_steps=doc.get("process_steps", []),
+        fees=doc.get("fees"),
+        processing_time=doc.get("processing_time"),
+        helpline=doc.get("helpline"),
+        website=doc.get("website"),
+        not_found_message=None,
+    )

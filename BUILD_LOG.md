@@ -436,9 +436,87 @@ First transcription downloads the small model (~460MB, one-time).
 
 ---
 
+---
+
+## Day 8 — 10 Jun 2026
+
+**Built:**
+- **Documents feature — 4th domain: Document Guidance**
+  - New domain `documents` added alongside existing legal domains
+  - Covers 4 categories and 11 specific document types:
+    - Government IDs: Aadhaar (new), PAN Card (new), Voter ID (new)
+    - Passport & Travel: New adult passport, passport renewal
+    - Civil Certificates: Birth certificate (original/duplicate), Marriage certificate, Death certificate
+    - Property & Land: Sale deed registration, Land records (7/12 / RTC / Patta), Encumbrance Certificate
+  - Each entry has: required documents checklist (categories + options), step-by-step process with detail + tip, fees, processing time, helpline, official website
+
+- **`data/documents_corpus/`** — 4 JSON knowledge files (government_ids.json, passport_travel.json, civil_certificates.json, property_land.json). Structured lookup rather than RAG — no embeddings needed for this domain.
+
+- **`agents/documents_agent.py`** — new agent for document guidance queries
+  - Two-stage matching: keyword map (fast, free) → Groq LLM fallback for ambiguous queries
+  - Keyword map covers all 11 document IDs with 5–10 keywords each
+  - LLM generates a short plain-language summary (3–5 sentences, under 80 words) for low-literacy users
+  - Corpus loaded once at import time, reused across requests
+
+- **`agents/classifier_agent.py`** — updated, original logic untouched
+  - Added `_is_documents_query()` keyword pre-filter
+  - Added `classify_query()` shim used by api.py — returns `{"domain": str, "confidence": float}`
+  - All original `run_classifier_agent()`, 8 domains, `ClassifierResponse` schema: unchanged
+  - Client initialisation made lazy to fix `GroqError` crash on startup
+
+- **`api.py`** — updated for documents routing + 2 new endpoints
+  - `/query` checks domain first — documents queries bypass vectorstore, go to `run_documents_agent()`
+  - `QueryResponse` gets optional `documents_result` field (null for all legal queries — backwards compatible)
+  - `GET /documents/list` — all 11 document summaries for the Documents tab
+  - `GET /documents/{doc_id}` — full guidance for one document by ID
+
+- **`frontend/src/components/DocumentsTab.jsx`** — browsable Documents tab
+  - Grid grouped by domain with icon + colour per category
+  - Search bar filtering across title and description
+  - Detail view: fees/time/helpline metadata card, two-tab layout (📋 Checklist / 🪜 Steps)
+  - Checklist tab: interactive tap-to-check checkboxes, grouped by document category
+  - Steps tab: expandable accordion per step, tips highlighted yellow
+
+- **`frontend/src/components/DocumentsResultCard.jsx`** — inline chat card for document queries
+  - Plain-language summary, fee/time/helpline pills, step preview
+  - "View Full Guide with Document Checklist →" CTA switches to Documents tab at the right entry
+
+- **`App.jsx`** — tab nav added to header (⚖️ Get Help / 📋 Documents), `DocumentsResultCard` wired into response flow
+
+- **`test_documents_feature.py`** — diagnostic test, no API key needed. 11/11 keyword tests passing.
+
+**Broke:**
+- `GroqError` on startup — new `classifier_agent.py` initialised Groq client at module level before `load_dotenv()` ran in `pipeline.py`. Fixed by making client lazy (`_get_client()` function)
+- Wrong `pipeline.py` placed in project root (zip version had incompatible `run_pipeline()` signature). Fixed by restoring original and only modifying `api.py` + `classifier_agent.py`
+- `langchain_chroma` and `langdetect` not installed after pipeline restore. Fixed: `pip install langchain-chroma langdetect`
+- `ImportError: cannot import name 'run_classifier_agent'` — new classifier only exported `classify_query()`. Fixed by keeping original function intact and adding `classify_query()` as additional export
+
+**Learned:**
+- Structured JSON lookup is the right architecture for procedural, stable content — cheaper, faster, more reliable than RAG. RAG is for fuzzy legal text; a lookup table is better for "what documents do I need for a passport"
+- Lazy client initialisation (`_get_client()`) is required for any module-level API client in uvicorn — the reloader spawns a subprocess where import order relative to `load_dotenv()` isn't guaranteed
+- When adding a new domain, the cleanest integration point is a pre-check shim in the classifier — catch early, route differently, leave the existing pipeline completely untouched
+- Event-driven tab switching (`window.dispatchEvent`) lets a chat card navigate to a different tab without lifting state all the way up the component tree
+
+**Architecture decision:**
+Documents domain bypasses the vectorstore entirely. The full pipeline (classify → retrieve → rights + actions + forms agents → synthesis) is designed for fuzzy legal text. Document guidance is deterministic — user asks about a passport, we return the passport checklist. The documents_agent does keyword match → optional LLM fallback → corpus lookup → LLM summary. Near-zero cost, fast, no retrieval needed.
+
+**Milestone ✓**
+- [x] `python test_documents_feature.py` — 11/11 passing, corpus structure valid
+- [x] `GET /documents/list` returns all 11 document summaries
+- [x] `GET /documents/{doc_id}` returns full guidance for any document
+- [x] `POST /query` routes document queries to documents_agent, legal queries to existing pipeline unchanged
+- [x] Documents tab renders with domain grouping, search, and interactive checklist detail view
+- [x] Chat shows DocumentsResultCard for document queries, ResponseCard for legal queries
+
+**Documents feature answer (interview ready):**
+"The documents feature adds a 4th domain that bypasses the RAG pipeline entirely. Government document requirements are stable and procedural — they don't need semantic search. The classifier catches document queries with a keyword pre-check and routes them to a documents agent that does a corpus lookup across 11 document types. The agent returns a structured checklist and step-by-step process, plus a short LLM-generated plain-language summary for low-literacy users. The frontend renders this as an interactive checklist where users tick off documents as they gather them — a completely different UX from the legal rights response, built for a different user need."
+
+---
+
 ## Upcoming
 
 - **Deploy** — Hugging Face Spaces (backend) + Vercel (frontend)
 - **README + screenshots** — GitHub repo cleanup before deploy
 - **Expand corpus** — consumer fraud and domestic violence domains
 - **Actions recall improvement** — currently 63–72%
+- **Documents multilingual** — translate document guidance to hi/kn/ta/te using existing translator layer

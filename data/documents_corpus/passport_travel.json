@@ -1,0 +1,154 @@
+{
+  "domain": "passport_travel",
+  "documents": [
+    {
+      "id": "passport_new_adult",
+      "title": "Passport (New Application — Adult)",
+      "description": "Indian Passport for adults (18+), valid 10 years. Issued by Ministry of External Affairs via Passport Seva Kendras.",
+      "required_documents": [
+        {
+          "category": "Proof of Date of Birth (any one)",
+          "options": [
+            "Birth Certificate issued by Municipal Authority / Gram Panchayat",
+            "Transfer/School Leaving Certificate",
+            "Matriculation Certificate (Class 10)",
+            "Declaration from parent/guardian for minors",
+            "Driving Licence",
+            "PAN Card",
+            "Aadhaar Card",
+            "Election Photo Identity Card (Voter ID)",
+            "Policy Bond issued by Public Life Insurance Corporations/Companies"
+          ]
+        },
+        {
+          "category": "Proof of Address (any one)",
+          "options": [
+            "Aadhaar Card",
+            "Voter ID Card",
+            "Water/Electricity/Gas Bill (not older than 3 months)",
+            "Bank Account Passbook (not older than 3 months)",
+            "Rent Agreement (registered with rent authority)",
+            "Driving Licence",
+            "IT Return / IT Assessment Order",
+            "Ration Card",
+            "Letter from recognized public authority verifying residence",
+            "Original certificate from employer of reputed companies on letterhead",
+            "Spouse's Passport copy (first and last page including family details)"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Register on Passport Seva Portal",
+          "detail": "Go to passportindia.gov.in → 'New User Registration' → Create account with email → Verify email → Log in.",
+          "tip": "Use a personal email you access regularly — all communication comes here."
+        },
+        {
+          "step": 2,
+          "title": "Fill Application Form Online",
+          "detail": "Log in → 'Apply for Fresh Passport/Re-issue of Passport' → Select 'Normal' or 'Tatkal' → Fill all details carefully including old passport details if any → Save draft regularly.",
+          "tip": "Have your Aadhaar, PAN, and address documents handy before starting — session times out."
+        },
+        {
+          "step": 3,
+          "title": "Pay Fees",
+          "detail": "Normal (36 pages): ₹1,500 | Normal (60 pages): ₹2,000 | Tatkal (36 pages): ₹3,500 | Tatkal (60 pages): ₹4,000. Pay via net banking, debit/credit card, or UPI.",
+          "tip": "Payment is non-refundable once made."
+        },
+        {
+          "step": 4,
+          "title": "Book Passport Seva Kendra (PSK) / Post Office PSK Appointment",
+          "detail": "After payment, book the earliest available slot at your nearest PSK or POPSK. You can reschedule once for free.",
+          "tip": "POPSK (Post Office Passport Seva Kendra) appointments are often easier to get in smaller cities."
+        },
+        {
+          "step": 5,
+          "title": "Visit PSK with documents",
+          "detail": "Carry original documents + ONE self-attested photocopy of each. Bring printed application form and appointment confirmation. Arrive 15 minutes early.",
+          "tip": "Wear comfortable clothing — queues can take 1–2 hours even with appointment."
+        },
+        {
+          "step": 6,
+          "title": "Document verification, biometrics, photo at PSK",
+          "detail": "Three counters: A (document check), B (data verification + photo + biometrics), C (final review + granting). Staff will tell you whether application is Granted, Pending, or Requires Police Verification.",
+          "tip": "If police verification is required, a police officer will visit your address — ensure someone is home."
+        },
+        {
+          "step": 7,
+          "title": "Police Verification (if required)",
+          "detail": "SB (Special Branch) police officer will visit your address or call. Keep originals of address proof ready. Provide any additional documents requested.",
+          "tip": "Cooperate fully — delays in police verification are the #1 reason for passport delays."
+        },
+        {
+          "step": 8,
+          "title": "Track and receive Passport",
+          "detail": "Track at passportindia.gov.in using File Number from appointment receipt. Passport dispatched via Speed Post. Normal: 30–45 days. Tatkal: 7–14 days (post-PV).",
+          "tip": "Track Speed Post separately on indiapost.gov.in using the dispatch tracking number in your portal."
+        }
+      ],
+      "fees": "₹1,500 (Normal, 36 pages) | ₹2,000 (Normal, 60 pages) | ₹3,500 (Tatkal, 36 pages)",
+      "processing_time": "Normal: 30–45 days | Tatkal: 7–14 days",
+      "helpline": "1800-258-1800 (toll-free)",
+      "website": "https://passportindia.gov.in"
+    },
+    {
+      "id": "passport_renewal",
+      "title": "Passport Renewal / Re-issue",
+      "description": "Re-issue of expired or expiring Indian Passport, or due to change of name/address/appearance.",
+      "required_documents": [
+        {
+          "category": "Mandatory",
+          "options": [
+            "Original old/expired passport (must be submitted)",
+            "Self-attested copy of first two and last two pages of old passport",
+            "Self-attested copy of ECR/ECNR page if applicable"
+          ]
+        },
+        {
+          "category": "Proof of Address (any one)",
+          "options": [
+            "Aadhaar Card",
+            "Voter ID Card",
+            "Water/Electricity/Gas Bill (not older than 3 months)",
+            "Bank Account Passbook (not older than 3 months)",
+            "Driving Licence",
+            "Ration Card"
+          ]
+        },
+        {
+          "category": "If applying due to name change after marriage",
+          "options": [
+            "Marriage Certificate issued by Registrar of Marriages",
+            "Spouse's Passport (copy of first and last page)",
+            "Joint Affidavit by husband and wife on ₹10 non-judicial stamp paper"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Apply online same as fresh passport",
+          "detail": "On passportindia.gov.in, select 'Re-issue of Passport' and choose the reason (expiry, damaged, change of personal details, lost/stolen, etc.).",
+          "tip": "If passport is lost/stolen, you must file a police complaint (FIR) first and bring that copy."
+        },
+        {
+          "step": 2,
+          "title": "Surrender old passport at PSK",
+          "detail": "Old passport is collected by PSK staff and cancelled with holes punched — you get it back after new passport is issued. Keep all pages intact.",
+          "tip": "Do not remove visa pages or any pages before submitting."
+        },
+        {
+          "step": 3,
+          "title": "Rest of process same as fresh application",
+          "detail": "Biometrics, photo, verification at PSK, then dispatch. Renewals where information hasn't changed are often Pre-Police Verification (faster).",
+          "tip": null
+        }
+      ],
+      "fees": "₹1,500 (Normal, 36 pages) | ₹3,500 (Tatkal, 36 pages)",
+      "processing_time": "Normal: 30–45 days | Tatkal: 7–14 days",
+      "helpline": "1800-258-1800 (toll-free)",
+      "website": "https://passportindia.gov.in"
+    }
+  ]
+}

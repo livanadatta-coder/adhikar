@@ -1,0 +1,269 @@
+{
+  "domain": "government_ids",
+  "documents": [
+    {
+      "id": "aadhaar_new",
+      "title": "Aadhaar Card (New Enrollment)",
+      "description": "Unique 12-digit biometric identity card issued by UIDAI",
+      "required_documents": [
+        {
+          "category": "Proof of Identity (any one)",
+          "options": [
+            "Passport",
+            "PAN Card",
+            "Voter ID Card",
+            "Driving Licence",
+            "Ration Card with photo",
+            "Arms Licence",
+            "Photo ID issued by Gazette Officer on letterhead",
+            "Bank Passbook with photo",
+            "CGHS/ECHS Photo Card",
+            "Certificate of Identity with photo issued by MP/MLA/Gazetted Officer/Tehsildar"
+          ]
+        },
+        {
+          "category": "Proof of Address (any one)",
+          "options": [
+            "Passport",
+            "Bank Statement / Passbook",
+            "Post Office Account Statement / Passbook",
+            "Ration Card",
+            "Voter ID Card",
+            "Driving Licence",
+            "Government Photo ID Cards",
+            "Electricity Bill (not older than 3 months)",
+            "Water Bill (not older than 3 months)",
+            "Telephone Landline Bill (not older than 3 months)",
+            "Property Tax Receipt (not older than 1 year)",
+            "Credit Card Statement (not older than 3 months)",
+            "Insurance Policy",
+            "Signed Letter from Bank on letterhead",
+            "Signed Letter from Registered Company on letterhead",
+            "Caste and Domicile Certificate with photo",
+            "Vehicle Registration Certificate",
+            "Registered Sale/Lease/Rent Agreement",
+            "Address Certificate from MP/MLA/Gazetted Officer/Tehsildar",
+            "Income Tax Assessment Order"
+          ]
+        },
+        {
+          "category": "Date of Birth Proof (any one, for exact DoB)",
+          "options": [
+            "Birth Certificate",
+            "SSLC Certificate",
+            "Passport",
+            "Certificate of Date of Birth issued by Group A Gazetted Officer"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Locate nearest Aadhaar Seva Kendra or Enrolment Centre",
+          "detail": "Visit uidai.gov.in and use 'Locate Enrolment Centre' to find the nearest centre by PIN code or city. Common centres are at post offices, banks, and government offices.",
+          "tip": "Post office centres often have shorter queues than bank centres."
+        },
+        {
+          "step": 2,
+          "title": "Book an appointment (optional but recommended)",
+          "detail": "Go to appointments.uidai.gov.in to book a slot. Walk-ins are accepted but appointments skip the queue.",
+          "tip": "Appointments open 30 days in advance."
+        },
+        {
+          "step": 3,
+          "title": "Fill the Enrolment Form",
+          "detail": "Download and fill Aadhaar Enrolment / Correction Form from uidai.gov.in, or collect it at the centre. Fill all fields in CAPITAL letters.",
+          "tip": "Carry original documents — photocopies are taken at the centre."
+        },
+        {
+          "step": 4,
+          "title": "Submit form and biometrics at the centre",
+          "detail": "Operator will scan your fingerprints, iris, and photograph. Verify all details on screen before confirming.",
+          "tip": "Check name, date of birth, and address carefully — corrections later require a separate process."
+        },
+        {
+          "step": 5,
+          "title": "Collect Enrolment ID / Acknowledgement Slip",
+          "detail": "You receive a 14-digit Enrolment ID on the acknowledgement slip. Keep it safe — you need it to track your Aadhaar.",
+          "tip": null
+        },
+        {
+          "step": 6,
+          "title": "Track and download e-Aadhaar",
+          "detail": "After 90 days, check status at uidai.gov.in using Enrolment ID. Physical Aadhaar is mailed to your address. You can also download e-Aadhaar (PDF) from myaadhaar.uidai.gov.in.",
+          "tip": "e-Aadhaar is legally valid and free to download anytime."
+        }
+      ],
+      "fees": "Free",
+      "processing_time": "90 days for physical card; e-Aadhaar downloadable once generated",
+      "helpline": "1947 (UIDAI toll-free)",
+      "website": "https://uidai.gov.in"
+    },
+    {
+      "id": "pan_new",
+      "title": "PAN Card (New Application)",
+      "description": "10-character alphanumeric Permanent Account Number issued by Income Tax Department",
+      "required_documents": [
+        {
+          "category": "Proof of Identity (any one)",
+          "options": [
+            "Aadhaar Card",
+            "Voter ID Card",
+            "Passport",
+            "Driving Licence",
+            "Ration Card with applicant's photo",
+            "Arms Licence",
+            "Photo ID card issued by Central/State Government",
+            "Pensioner Card with photo",
+            "Central Government Health Scheme Card",
+            "Bank Certificate on official letterhead with photo and account number"
+          ]
+        },
+        {
+          "category": "Proof of Address (any one)",
+          "options": [
+            "Aadhaar Card",
+            "Voter ID Card",
+            "Passport",
+            "Passport of spouse",
+            "Post Office Passbook with address",
+            "Driving Licence",
+            "Latest Electricity Bill (not older than 3 months)",
+            "Latest Landline Telephone Bill (not older than 3 months)",
+            "Latest Broadband Bill (not older than 3 months)",
+            "Latest Bank Account Statement (not older than 3 months)",
+            "Latest Depository Account Statement (not older than 3 months)",
+            "Latest Credit Card Statement (not older than 3 months)",
+            "Property Registration Document",
+            "Domicile Certificate from Government",
+            "Allotment Letter of accommodation issued by Central/State Government (not older than 3 years)",
+            "Property Tax Assessment Order",
+            "Employer Certificate in original"
+          ]
+        },
+        {
+          "category": "Proof of Date of Birth (any one)",
+          "options": [
+            "Aadhaar Card",
+            "Voter ID Card",
+            "Passport",
+            "Driving Licence",
+            "Birth Certificate issued by Municipal Authority",
+            "Matriculation Certificate / Mark Sheet",
+            "Marriage Certificate issued by Registrar of Marriages",
+            "Affidavit sworn before a magistrate stating date of birth",
+            "Domicile Certificate from Government"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Choose application mode: Online (recommended) or Offline",
+          "detail": "Online: Apply via NSDL (tin-nsdl.com) or UTIITSL (utiitsl.com). Offline: Visit a PAN centre with printed Form 49A (Indian citizens) or 49AA (foreign nationals).",
+          "tip": "Instant e-PAN is free for Aadhaar holders — check the Income Tax e-filing portal first."
+        },
+        {
+          "step": 2,
+          "title": "Instant e-PAN via Aadhaar (fastest route)",
+          "detail": "Go to incometax.gov.in → 'Instant e-PAN' → Enter Aadhaar number → Validate OTP on registered mobile → PAN allotted instantly as PDF. No documents upload needed.",
+          "tip": "Your Aadhaar mobile number must be active. This is completely free."
+        },
+        {
+          "step": 3,
+          "title": "Standard Online Application (if not using Aadhaar route)",
+          "detail": "Fill Form 49A on NSDL or UTIITSL portal → Upload scanned documents (photo, signature, identity/address/DOB proof) → Pay fee ₹107 (domestic delivery) or ₹1,017 (foreign address) → Submit.",
+          "tip": "Scan documents clearly — blurry uploads cause rejection."
+        },
+        {
+          "step": 4,
+          "title": "Note down Acknowledgement Number",
+          "detail": "15-digit acknowledgement number is generated. Track application status at tin.tin.nsdl.com using this number.",
+          "tip": null
+        },
+        {
+          "step": 5,
+          "title": "Physical PAN Card delivery",
+          "detail": "PAN card is dispatched via Speed Post to your address within 15–20 working days after verification.",
+          "tip": "e-PAN (PDF) is emailed earlier and is equally valid for all purposes."
+        }
+      ],
+      "fees": "₹107 for Indian address delivery | Free for Instant e-PAN via Aadhaar",
+      "processing_time": "Instant e-PAN: minutes | Standard: 15–20 working days",
+      "helpline": "020-27218080 (NSDL) | 033-40802999 (UTIITSL)",
+      "website": "https://tin-nsdl.com or https://utiitsl.com"
+    },
+    {
+      "id": "voter_id_new",
+      "title": "Voter ID Card / EPIC (New Registration)",
+      "description": "Electoral Photo Identity Card issued by Election Commission of India. Required to vote in elections.",
+      "required_documents": [
+        {
+          "category": "Proof of Age (any one)",
+          "options": [
+            "Birth Certificate from Municipal Authority",
+            "Matriculation / Secondary School Certificate",
+            "Passport",
+            "Driving Licence",
+            "PAN Card",
+            "Aadhaar Card",
+            "Indian Passport of self or parents",
+            "Affidavit on Rs. 10 stamp paper before notary/magistrate"
+          ]
+        },
+        {
+          "category": "Proof of Residence (any one)",
+          "options": [
+            "Aadhaar Card",
+            "Passport",
+            "Driving Licence",
+            "Latest Bank Passbook",
+            "Latest Ration Card",
+            "Latest Electricity, Gas, Water or Telephone Bill (not older than 3 months)",
+            "Income/Wealth Tax Assessment Order",
+            "Registered Lease/Rental Agreement",
+            "Latest India Post Passbook",
+            "Pension Document",
+            "Service Photo ID Card of Central/State Government"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Check eligibility",
+          "detail": "You must be an Indian citizen, 18+ years old as of January 1 of the qualifying year, and a resident of the constituency where applying.",
+          "tip": "Even if you registered before and moved, you need a fresh registration at your new address."
+        },
+        {
+          "step": 2,
+          "title": "Apply online via Voter Helpline Portal",
+          "detail": "Go to voters.eci.gov.in → Click 'Register as New Voter' → Fill Form 6 → Upload age and residence proof → Submit. You'll get a reference ID.",
+          "tip": "Mobile app 'Voter Helpline' (by ECI) works the same way."
+        },
+        {
+          "step": 3,
+          "title": "Offline option: Submit Form 6 to BLO",
+          "detail": "Download Form 6 from eci.gov.in → Fill and attach documents → Submit at your local Booth Level Officer (BLO) or Electoral Registration Officer (ERO) office.",
+          "tip": "BLO contact details are available on voters.eci.gov.in by entering your address."
+        },
+        {
+          "step": 4,
+          "title": "Field verification by BLO",
+          "detail": "BLO will visit your address to verify residence. Be present or ensure a family member can confirm your residence.",
+          "tip": null
+        },
+        {
+          "step": 5,
+          "title": "Track and collect EPIC",
+          "detail": "Track status using reference ID on voters.eci.gov.in. Card is delivered by post or available for collection at ERO office.",
+          "tip": "Once in electoral rolls, you can also use e-EPIC (digital voter ID) from voters.eci.gov.in — it's a password-protected PDF."
+        }
+      ],
+      "fees": "Free",
+      "processing_time": "30–45 days",
+      "helpline": "1950 (Voter Helpline, toll-free)",
+      "website": "https://voters.eci.gov.in"
+    }
+  ]
+}

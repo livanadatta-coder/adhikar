@@ -1,6 +1,8 @@
 // src/components/ResponseCard.jsx
 import { useState } from "react";
 
+const BASE_URL = "http://127.0.0.1:8000";
+
 function RightsSection({ rights }) {
   return (
     <div className="response-section rights-section">
@@ -86,6 +88,33 @@ function FormsSection({ forms }) {
 
 export default function ResponseCard({ response, onBack }) {
   const [showSources, setShowSources] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownloadCard = async () => {
+    setDownloading(true);
+    try {
+      const res = await fetch(`${BASE_URL}/rights-card`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          query: response.rights[0]?.right || "legal rights",
+          language: response.detected_lang || "en",
+        }),
+      });
+      if (!res.ok) throw new Error("PDF generation failed");
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "adhikar-rights-card.pdf";
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      alert("Could not generate PDF. Please try again.");
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <div className="response-card">
@@ -116,6 +145,14 @@ export default function ResponseCard({ response, onBack }) {
           </div>
         )}
       </div>
+
+      <button
+        className="download-card-btn"
+        onClick={handleDownloadCard}
+        disabled={downloading}
+      >
+        {downloading ? "Generating PDF..." : "⬇ Download Rights Card (PDF)"}
+      </button>
 
       <div className="helpline-bar">
         <span>🆘 NALSA Free Legal Aid</span>

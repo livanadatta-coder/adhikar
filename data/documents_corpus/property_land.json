@@ -1,0 +1,173 @@
+{
+  "domain": "property_land",
+  "documents": [
+    {
+      "id": "sale_deed_registration",
+      "title": "Property Sale Deed Registration",
+      "description": "Mandatory registration of property sale at Sub-Registrar's office. Without registration, property transfer has no legal validity under Registration Act 1908.",
+      "required_documents": [
+        {
+          "category": "Both buyer and seller must provide",
+          "options": [
+            "PAN Card (mandatory for transactions above ₹10 lakh)",
+            "Aadhaar Card / Voter ID / Passport (identity proof)",
+            "Two passport-size photographs each",
+            "Two witnesses with identity proofs"
+          ]
+        },
+        {
+          "category": "Property documents (seller provides)",
+          "options": [
+            "Original Title Deed / Previous Sale Deed",
+            "Property Tax Receipts (last 3 years, up to date)",
+            "Encumbrance Certificate (from Sub-Registrar for last 13–30 years)",
+            "Khata Certificate and Khata Extract (from municipal body)",
+            "Approved Building Plan (for built property)",
+            "Completion Certificate / Occupancy Certificate (for new construction)",
+            "NOC from Society/Builder (for apartment)",
+            "Water/Electricity clearance certificate"
+          ]
+        },
+        {
+          "category": "Financial documents",
+          "options": [
+            "Bank loan sanction letter (if buyer is taking loan)",
+            "Demand Draft / Pay Order for stamp duty and registration fee payment",
+            "Form 26QB (TDS on property above ₹50 lakh — buyer deducts 1% TDS)"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Verify property title and get Encumbrance Certificate",
+          "detail": "Before any purchase, get Encumbrance Certificate (EC) from Sub-Registrar office for last 13 years minimum (30 years recommended). EC shows all registered transactions — loans, mortgages, prior sales. A clean EC means the property has no legal dues.",
+          "tip": "In Karnataka: kaveri.karnataka.gov.in | Maharashtra: igrmaharashtra.gov.in | Tamil Nadu: tnreginet.gov.in | AP/Telangana: registration.ap.gov.in"
+        },
+        {
+          "step": 2,
+          "title": "Calculate and pay Stamp Duty",
+          "detail": "Stamp duty varies by state: typically 4–8% of sale value or circle rate (whichever is higher). Pay online via state's stamp duty portal or at authorised banks. Get e-stamp paper or franking done.",
+          "tip": "Maharashtra stamp duty: 5% (men) / 4% (women) + 1% metro cess + 1% LBT in some areas. Calculate at igrmaharashtra.gov.in."
+        },
+        {
+          "step": 3,
+          "title": "Draft the Sale Deed",
+          "detail": "Hire a licensed advocate or document writer to draft the sale deed. Must include: full property description, sale consideration, payment terms, possession date, indemnity clause, and both parties' details.",
+          "tip": "Do not use informal templates — errors in sale deed are very difficult and expensive to correct."
+        },
+        {
+          "step": 4,
+          "title": "Book appointment at Sub-Registrar Office",
+          "detail": "Most states have online appointment booking. Both buyer and seller (or power of attorney holder) must be physically present with originals. Two witnesses also required.",
+          "tip": null
+        },
+        {
+          "step": 5,
+          "title": "Registration at Sub-Registrar's office",
+          "detail": "Staff verifies documents, photographs buyer and seller, takes thumb impressions, collects registration fee (usually 0.5–1% of property value), and registers the deed. You receive certified copy with registration number.",
+          "tip": "Registration fee: 1% of property value in Maharashtra (max ₹30,000 for some categories)."
+        },
+        {
+          "step": 6,
+          "title": "Mutation (Khata Transfer) after registration",
+          "detail": "After sale deed registration, apply for Khata transfer at local municipal body with: registered sale deed copy, property tax receipts, filled mutation application. This is separate from registration and essential for paying property tax as new owner.",
+          "tip": "Mutation does not create title — only sale deed registration does. But mutation is needed for tax records."
+        }
+      ],
+      "fees": "Stamp duty: 4–8% of property value (state-specific) | Registration: 0.5–1%",
+      "processing_time": "Registration: same day | Mutation: 30–60 days",
+      "helpline": "Contact your district Sub-Registrar office",
+      "website": "State-specific registration portals"
+    },
+    {
+      "id": "land_records",
+      "title": "Land Records / 7/12 Extract / ROR (Record of Rights)",
+      "description": "Official document showing land ownership, cultivation rights, and encumbrances. Called 7/12 (Satbara) in Maharashtra, RTC in Karnataka, Patta in Tamil Nadu/AP/Telangana.",
+      "required_documents": [
+        {
+          "category": "To obtain Land Record extract (no documents required, public record)",
+          "options": [
+            "Survey number / Gat number of the land",
+            "Village name and taluka",
+            "Owner's name (for search purposes)"
+          ]
+        },
+        {
+          "category": "To apply for Mutation (name change in land records after purchase/inheritance)",
+          "options": [
+            "Registered Sale Deed (for purchase)",
+            "Succession Certificate / Legal Heir Certificate (for inheritance)",
+            "Death Certificate of previous owner (for inheritance)",
+            "Court order (if via court decree)",
+            "Identity proof of new owner"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Access land records online (free, instant)",
+          "detail": "Maharashtra (7/12 Satbara): bhulekh.mahabhumi.gov.in | Karnataka (RTC/Pahani): landrecords.karnataka.gov.in | Tamil Nadu (Patta): eservices.tn.gov.in | Andhra Pradesh: meeseva.gov.in | Telangana: dharani.telangana.gov.in | Rajasthan: apnakhata.raj.nic.in | UP: upbhulekh.gov.in",
+          "tip": "You need Survey/Khasra/Gat number to search. This is usually on old sale deeds or property tax receipts."
+        },
+        {
+          "step": 2,
+          "title": "Get certified copy for official use",
+          "detail": "Online downloads are accepted for most purposes but may need certification for court/bank use. For certified copy: visit Talathi (Maharashtra) or Village Accountant (Karnataka) or Revenue Inspector office with application + nominal fee.",
+          "tip": "Digitally signed online extracts from official portals are considered legally valid certified copies."
+        },
+        {
+          "step": 3,
+          "title": "Apply for Mutation after purchase or inheritance",
+          "detail": "File Form for Mutation at Talathi / Revenue Inspector office → Attach sale deed/succession documents → Notice is given to existing parties → If no objection in 30 days → Mutation order passed → Records updated.",
+          "tip": "Mutation should be done within 3 months of purchase. Delays can complicate future sales."
+        }
+      ],
+      "fees": "Free for online view | ₹15–50 for certified copy",
+      "processing_time": "Instant (online) | Mutation: 30–90 days",
+      "helpline": "Contact your local Talathi / Revenue Inspector / Tehsildar",
+      "website": "State-specific Bhulekh portals"
+    },
+    {
+      "id": "encumbrance_certificate",
+      "title": "Encumbrance Certificate (EC)",
+      "description": "Certificate showing all registered transactions on a property over a specified period — loans, mortgages, sales, gifts. Proves property is free from legal dues.",
+      "required_documents": [
+        {
+          "category": "Information needed to apply (no documents required for public search)",
+          "options": [
+            "Property details: Survey number / Plot number",
+            "Village/Town, Taluka, District",
+            "Period for which EC is required (specify start and end year)",
+            "Owner's name"
+          ]
+        }
+      ],
+      "process_steps": [
+        {
+          "step": 1,
+          "title": "Apply online (available in most states)",
+          "detail": "Maharashtra: igrmaharashtra.gov.in | Karnataka: kaveri.karnataka.gov.in | Tamil Nadu: tnreginet.gov.in | AP: registration.ap.gov.in | Telangana: registration.telangana.gov.in. Log in (or guest search) → Enter property details → Select period → Pay fee → Download EC.",
+          "tip": "For property purchase: get EC for minimum 13 years. For 30-year EC, visit Sub-Registrar office as older records may not be digitised."
+        },
+        {
+          "step": 2,
+          "title": "Offline application at Sub-Registrar office",
+          "detail": "Fill Form 22 (or state equivalent) → Submit with property details and fee → EC issued within 3–7 working days.",
+          "tip": null
+        },
+        {
+          "step": 3,
+          "title": "Interpret the EC",
+          "detail": "Form 15 EC = property has registered transactions (shows all entries). Form 16 Nil EC = no transactions found — property is free from encumbrances. Always verify that the current owner's name appears in the chain.",
+          "tip": "A gap in the ownership chain in EC is a red flag — consult a property lawyer before purchasing."
+        }
+      ],
+      "fees": "₹200–500 for online | ₹400–1000 for offline (varies by state and period)",
+      "processing_time": "Instant to 24 hours (online) | 3–7 days (offline)",
+      "helpline": "Contact local Sub-Registrar office",
+      "website": "State-specific registration portals"
+    }
+  ]
+}

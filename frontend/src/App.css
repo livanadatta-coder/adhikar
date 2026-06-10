@@ -627,3 +627,29 @@ body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.2; }
 }
+
+/* ── Download card button ── */
+.download-card-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--paper);
+  border: 2px solid var(--moss);
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--forest);
+  cursor: pointer;
+  transition: all 0.15s;
+  min-height: 54px;
+}
+
+.download-card-btn:hover:not(:disabled) {
+  background: var(--forest);
+  color: var(--paper);
+}
+
+.download-card-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

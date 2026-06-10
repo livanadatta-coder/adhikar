@@ -31,3 +31,5 @@ requests==2.32.3
 
 # Utils
 tqdm==4.66.4
+
+reportlab==4.2.2
